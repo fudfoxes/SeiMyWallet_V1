@@ -1,0 +1,14 @@
+{
+  "extends": "@tsconfig/node18/tsconfig.json",
+  "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "@seimywallet/core/*": ["./packages/core/src/*"],
+      "@seimywallet/db": ["./packages/database/src/index.ts"],
+      "@seimywallet/db/*": ["./packages/database/src/*"],
+      "@seimywallet/globals/*": ["./packages/globals/src/*"]
+    }
+  },
+}

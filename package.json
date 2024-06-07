@@ -1,0 +1,42 @@
+{
+  "name": "seimywallet",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "sst dev",
+    "build": "sst build",
+    "deploy": "sst deploy",
+    "remove": "sst remove",
+    "console": "sst console",
+    "typecheck": "tsc --noEmit",
+    "db:push": "yarn workspace seimywallet/db db:push",
+    "db:push:dev": "yarn workspace seimywallet/db db:push --stage dev",
+    "db:push:prod": "yarn workspace seimywallet/db db:push --stage prod",
+    "db:migrate": "yarn workspace seimywallet/db db:migrate",
+    "db:migrate:dev": "yarn workspace seimywallet/db db:migrate --stage dev",
+    "db:migrate:prod": "yarn workspace seimywallet/db db:migrate --stage prod",
+    "db:generate": "yarn workspace seimywallet/db db:generate",
+    "deploy:dev": "AWS_PROFILE=seimywallet yarn deploy --stage dev",
+    "deploy:web:dev": "AWS_PROFILE=seimywallet yarn deploy WebStack --stage dev",
+    "deploy:api:dev": "AWS_PROFILE=seimywallet yarn deploy ApiStack --stage dev",
+    "deploy:prod": "AWS_PROFILE=seimywallet yarn deploy --stage prod",
+    "deploy:web:prod": "AWS_PROFILE=seimywallet yarn deploy WebStack --stage prod",
+    "deploy:api:prod": "AWS_PROFILE=seimywallet yarn deploy ApiStack --stage prod",
+    "secrets:load": "sst secrets load ./local.secrets --stage local",
+    "secrets:load:dev": "sst secrets load ./dev.secrets --stage dev",
+    "secrets:load:prod": "sst secrets load ./prod.secrets --stage prod"
+  },
+  "devDependencies": {
+    "@tsconfig/node18": "^18.2.2",
+    "aws-cdk-lib": "2.110.1",
+    "constructs": "10.3.0",
+    "sst": "^2.36.7",
+    "tsx": "^4.6.1",
+    "ttab": "^0.8.0",
+    "typescript": "^5.3.2"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
